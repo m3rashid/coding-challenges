@@ -11,6 +11,12 @@ Following these philosophies has made the simple unix command line tools some of
 
 You can read more about the Unix Philosophy in the excellent book The [Art of Unix Programming](http://www.catb.org/~esr/writings/taoup/html).
 
+The functional requirements for wc are concisely described by it’s man page - give it a go in your local terminal now:
+
+```bash
+man wc
+```
+
 ### Usage
 
 ```bash
