@@ -77,17 +77,13 @@ func HandleArgs(args Args, contents bytes.Buffer, extraLen int, cmdType string) 
 	}
 
 	if args.IsCountByte {
-		// scanner := resetBufferScanner(&contents)
-		scanner := bufio.NewScanner(&contents)
-
+		scanner := resetBufferScanner(&contents)
 		res := GetByteCount(scanner) + extraLen
 		fmt.Print(res, "  ")
 	}
 
 	if args.IsCountChar {
-		// scanner := resetBufferScanner(&contents)
-		scanner := bufio.NewScanner(&contents)
-
+		scanner := resetBufferScanner(&contents)
 		res := GetCharCount(scanner) + extraLen
 		fmt.Print(res, "  ")
 	}
