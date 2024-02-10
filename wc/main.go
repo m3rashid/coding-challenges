@@ -21,6 +21,7 @@ func main() {
 		*isCountWord = true
 		*isCountLine = true
 		*isCountByte = true
+		fmt.Print("  ")
 	}
 
 	cmdArgs := count.Args{
@@ -32,6 +33,7 @@ func main() {
 
 	fileName := ""
 	var contents bytes.Buffer
+	extraLen := 0
 
 	if len(otherArgs) == 0 {
 		// check if there is content from unix pipe
@@ -39,9 +41,10 @@ func main() {
 		for scanner.Scan() {
 			line := scanner.Text()
 			fmt.Fprintln(&contents, line)
+			extraLen++
 		}
 
-		count.HandleArgs(cmdArgs, contents, count.PIPE)
+		count.HandleArgs(cmdArgs, contents, extraLen, count.PIPE)
 	} else {
 		fileName = otherArgs[0]
 		file, err := os.Open(fileName)
@@ -54,8 +57,10 @@ func main() {
 		for scanner.Scan() {
 			line := scanner.Text()
 			fmt.Fprintln(&contents, line)
+			extraLen++
 		}
-		count.HandleArgs(cmdArgs, contents, count.FILE)
+
+		count.HandleArgs(cmdArgs, contents, extraLen, count.FILE)
 	}
 
 	if fileName != "" {
