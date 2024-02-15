@@ -31,12 +31,8 @@ func (s *Stack[T]) Pop() (T, error) {
 	return item, nil
 }
 
-func (s *Stack[T]) Top() (T, error) {
-	if s.stackPointer < 0 {
-		var res T
-		return res, fmt.Errorf("stack is empty")
-	}
-	return s.items[s.stackPointer], nil
+func (s *Stack[T]) Top() T {
+	return s.items[s.stackPointer]
 }
 
 func (s *Stack[T]) IsEmpty() bool {

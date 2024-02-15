@@ -50,6 +50,9 @@ func main() {
 		{fileName: "tests/step4/valid.json", valid: true},
 		{fileName: "tests/step4/invalid.json", valid: false},
 		{fileName: "tests/step4/valid2.json", valid: true},
+
+		// my custom test cases
+		{fileName: "tests/step5/valid.json", valid: true},
 	}
 
 	for _, test := range fileNames {

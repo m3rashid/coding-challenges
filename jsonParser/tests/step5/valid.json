@@ -1,0 +1,17 @@
+{
+  "key": "value",
+  "key-n": 101,
+  "key-o": {
+    "hello": "words",
+    "new": "word"
+  },
+  "key-l": ["hello"],
+  "arr": [
+    {
+      "hello": "words",
+      "key": "value",
+      "key-n": 101
+    },
+    "ttt"
+  ]
+}
