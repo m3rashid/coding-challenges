@@ -57,8 +57,14 @@ func main() {
 		*binaryName = *folderName
 	}
 
-	// create folder
-	err = os.Mkdir("../"+*folderName, 0755)
+	absolutePath, err := os.Getwd()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	folderPath := strings.Join([]string{absolutePath, *folderName}, "/")
+	err = os.Mkdir(folderPath, 0755)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -66,7 +72,7 @@ func main() {
 
 	// run bash commands
 	commands := []string{
-		"cd ../" + *folderName,
+		"cd " + folderPath,
 		"go mod init " + *folderName,
 		"go mod tidy",
 		"touch main.go",
