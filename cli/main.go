@@ -80,7 +80,7 @@ func main() {
 		"echo '### " + *folderName + "' > README.md",
 		"touch Makefile",
 		"echo 'build:' >> Makefile",
-		"echo '\tgo build -o " + *binaryName + " main.go' >> Makefile",
+		"echo '\tgo build -o " + "bin/" + *binaryName + " main.go' >> Makefile",
 	}
 
 	allCommands := strings.Join(commands, " && ")
